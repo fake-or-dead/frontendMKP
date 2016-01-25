@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\LocationRequest;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Location;
-use View,Config;
+use View;
+use Config;
 
 class LocationController extends Controller
 {
@@ -28,15 +29,15 @@ class LocationController extends Controller
             $setData['data']        = Location::orWhere('id', 'LIKE', '%'.$search.'%')
                                         ->orWhere('group_name', 'LIKE', '%'.$search.'%')
                                         ->orderBy('id', 'desc')
-                                        ->paginate(Config::get('admin.defultRecord'));      
+                                        ->paginate(Config::get('admin.defultRecord'));
 
             $setData['pagination']  = $setData['data']->appends(['q' => $request->input('q')])->links() ;
-            $setData['search']      = $request->input('q') ; 
+            $setData['search']      = $request->input('q') ;
         }
         else
         {
             $setData['data']        = Location::with('user')->orderBy('id' , 'desc')
-                                        ->paginate(Config::get('admin.defultRecord'));  
+                                        ->paginate(Config::get('admin.defultRecord'));
 
             $setData['pagination']  = $setData['data']->links() ;
         }
