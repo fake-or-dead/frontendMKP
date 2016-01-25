@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Model\Admin;
 
@@ -9,10 +9,10 @@ class GroupUser extends Model
 {
 	use SoftDeletes;
 
-    protected $table 		= 'group_user';
-    protected $dates 		= ['deleted_at'];
-	protected $softDelete 	= true;
-	protected $fillable 	= ['group_name', 'sort_order', 'status'] ;
+    protected $table 		     = 'group_user';
+    protected $dates 		     = ['deleted_at'];
+    protected $softDelete 	 = true;
+    protected $fillable 	   = ['group_name', 'sort_order', 'status'];
 
     public function users()
     {

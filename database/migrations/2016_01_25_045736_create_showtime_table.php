@@ -15,7 +15,7 @@ class CreateShowtimeTable extends Migration
         Schema::create('showtime', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->integer('page_content_id');
+            $table->integer('page_content_id')->unsigned()->index()->comment = 'Foreign key of table page_content';
             $table->timestamp('start');
             $table->timestamp('end');
             $table->timestamps();
