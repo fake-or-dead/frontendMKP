@@ -29,7 +29,7 @@ class UserController extends Controller
         if ($request->has('q'))
         {
             $search                 = e($request->input('q')) ;
-            $setData['data']        = User::with('group_user')
+            $setData['data']        = User::with('groupUser')
                                         ->orWhere('username', 'LIKE', '%'.$search.'%')
                                         ->orWhere('last_name', 'LIKE', '%'.$search.'%')
                                         ->orWhere('first_name', 'LIKE', '%'.$search.'%')
@@ -42,7 +42,7 @@ class UserController extends Controller
         }
         else
         {
-            $setData['data']        = User::with('group_user')
+            $setData['data']        = User::with('groupUser')
                                         ->orderBy('id', 'desc')
                                         ->paginate(Config::get('admin.defultRecord'));
 
