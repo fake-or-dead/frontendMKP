@@ -12,7 +12,7 @@ class Location extends Model
     protected $table        = 'location';
     protected $dates        = ['deleted_at'];
     protected $softDelete   = true;
-    // protected $fillable     = ['id', 'user_id', 'parent_id','location_name','sort_order','limit','size_display','flag_last','type','status'];
+    protected $fillable     = ['id', 'user_id', 'parent_id','location_name','sort_order','limit','width','height','flag_last','type','status'];
 
     public function user()
     {

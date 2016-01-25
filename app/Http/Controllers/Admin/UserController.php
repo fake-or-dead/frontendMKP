@@ -27,22 +27,22 @@ class UserController extends Controller
         if ($request->has('q'))
         {
             $search                 = e($request->input('q')) ;
-            $setData['data']        = User::with('group_user')
+            $setData['data']        = User::with('groupUser')
                                         ->orWhere('username', 'LIKE', '%'.$search.'%')
                                         ->orWhere('last_name', 'LIKE', '%'.$search.'%')
                                         ->orWhere('first_name', 'LIKE', '%'.$search.'%')
                                         ->orWhere('id', 'LIKE', '%'.$search.'%')
                                         ->orderBy( 'id' , 'desc' )
-                                        ->paginate(Config::get('admin.defultRecord'));   
+                                        ->paginate(Config::get('admin.defultRecord'));
 
             $setData['pagination']  = $setData['data']->appends(['q' => $request->input('q')])->links() ;
-            $setData['search']      = $request->input('q') ; 
+            $setData['search']      = $request->input('q') ;
         }
         else
         {
-            $setData['data']        = User::with('group_user')
+            $setData['data']        = User::with('groupUser')
                                         ->orderBy('id', 'desc')
-                                        ->paginate(Config::get('admin.defultRecord')); 
+                                        ->paginate(Config::get('admin.defultRecord'));
 
             $setData['pagination']  = $setData['data']->links() ;
         }
@@ -114,9 +114,9 @@ class UserController extends Controller
 
         if( $dataUpdate['password'] )
         {
-            $dataUpdate['password'] = Hash::make($dataUpdate['password']) ; 
+            $dataUpdate['password'] = Hash::make($dataUpdate['password']) ;
         }
-        
+
         User::where('id',$id)->update($dataUpdate);
         return redirect()->action('Admin\UserController@index');
     }

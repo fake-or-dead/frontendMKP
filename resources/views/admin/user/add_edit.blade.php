@@ -3,16 +3,16 @@
 
   <div class="row">
     <div class="col-lg-12">
-          <ol class="breadcrumb">
-          <li><a href="{{ action('Admin\DashboardController@index') }}">{{ trans('banner_messages.home') }}</a></li>
-          <li><a href="{{ action('Admin\UserController@index') }}">{{ trans('banner_messages.user') }}</a></li>
-          <li class="active">{{ trans('banner_messages.'.$action.'User') }}</li>
+      <ol class="breadcrumb">
+      <li><a href="{{ action('Admin\DashboardController@index') }}">{{ trans('banner_messages.home') }}</a></li>
+      <li><a href="{{ action('Admin\UserController@index') }}">{{ trans('banner_messages.user') }}</a></li>
+     	<li class="active">{{ trans('banner_messages.'.$action.'User') }}</li>
       </ol>
     </div>
   </div>
   <div class="row">
       <div class="col-lg-12">
-          <h4 class="page-header">{{ trans('banner_messages.'.$action.'User') }}</h4>
+          <h4 class="page-header">{{ trans('Admin/text_message.'.$action.'User') }}</h4>
       </div>
   </div>
   <div class="row">
