@@ -13,7 +13,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
 	mix.sass('app.scss')
-  mix.scripts(['bootstrap-select.js', 'bootstrap.js', 'flickity.js', "jquery-1.11.3.min.js"])
+  mix.scripts(["jquery-1.11.3.min.js", 'bootstrap-select.js', 'bootstrap.js', 'flickity.js'])
   mix.coffee(['app.coffee', 'controldiv.coffee']);
   mix.scriptsIn('public/js/');
 });
