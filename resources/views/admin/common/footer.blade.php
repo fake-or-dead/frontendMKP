@@ -10,19 +10,19 @@
 <script src="{{asset('admin/dist/js/sb-admin-2.js')}}"></script>
 
 <script type="text/javascript">
-  var msgConfirmDelete    = '{{ trans('banner_messages.msgConfirmDelete') }}' ;
-  var titleErrorAlert     = '{{ trans('banner_messages.alert') }}' ;
+  var msgConfirmDelete    = '{{ trans('admin/text_message.msgConfirmDelete') }}' ;
+  var titleErrorAlert     = '{{ trans('admin/text_message.alert') }}' ;
   var massageError        = '';
 
   @if (isset($errorMsg))
       $( window ).load(function() {
         alertMsg('','{{$errorMsg}}');
-      }); 
+      });
   @elseif (count($errors) > 0)
       @foreach ($errors->all(':message<br/>') as $error)
           massageError += '{!! $error !!}' ;
       @endforeach
-      
+
       $( window ).load(function() {
         alertMsg('',massageError);
       });
@@ -46,9 +46,9 @@
         ...
       </div>
       <div class="modal-footer" id="closeFullbox">
-        <button type="button" onclick="ajaxDelete()" style="display:none" class="btn btn-default btnDelete">{{ trans('banner_messages.yes') }}</button>
-        <button type="button" class="btn btn-default btnDelete" style="display:none" data-dismiss="modal">{{ trans('banner_messages.no') }}</button>
-        <button type="button" class="btn btn-default btnClose" data-dismiss="modal">{{ trans('banner_messages.close') }}</button>
+        <button type="button" onclick="ajaxDelete()" style="display:none" class="btn btn-default btnDelete">{{ trans('admin/text_message.yes') }}</button>
+        <button type="button" class="btn btn-default btnDelete" style="display:none" data-dismiss="modal">{{ trans('admin/text_message.no') }}</button>
+        <button type="button" class="btn btn-default btnClose" data-dismiss="modal">{{ trans('admin/text_message.close') }}</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>

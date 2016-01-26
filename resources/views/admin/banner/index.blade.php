@@ -1,4 +1,5 @@
 @extends("admin.common.main")
+<<<<<<< HEAD
 @section("title")
   {{ trans('banner_messages.groupUser') }}
 @endsection
@@ -67,3 +68,7 @@
     </div>
   </div>
 @endsection
+=======
+@section("content")
+@stop
+>>>>>>> ShopOfTheWeek

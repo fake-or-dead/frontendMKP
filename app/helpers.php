@@ -11,14 +11,14 @@ function d( $data , $status = false )
 	}
 	else
 	{
-		
+
 	}
-	
+
 }
 
 function inputValue(string $key, $data)
 {
-	return (isset($data[0]->{$key})) ? $data[0]->{$key} : old($key) ;
+	return (isset($data->{$key})) ? $data->{$key} : old($key) ;
 }
 
 function beforeSql(array $data)
