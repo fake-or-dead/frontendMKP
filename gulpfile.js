@@ -11,32 +11,9 @@ var elixir = require('laravel-elixir');
  |
  */
 
-// elixir(function(mix) {
-//     mix.sass('app.scss');
-// });
-
-// elixir(function(mix) {
-//     mix.coffee([
-//     'app.coffee'
-//   ]);
-// });
-
 elixir(function(mix) {
-	mix.sass('app.scss');
-    mix.coffee('app.coffee');
-    // mix.coffee('controldiv.coffee');
-    mix.coffee('controldiv.coffee', 'public/admin/js/controldiv.js');
+	mix.sass('app.scss')
+  mix.scripts(["jquery-1.11.3.min.js", 'bootstrap-select.js', 'bootstrap.js', 'flickity.js'])
+  mix.coffee(['app.coffee', 'controldiv.coffee']);
+  mix.scriptsIn('public/js/');
 });
-
-// elixir(function(mix) {
-//     mix.styles(
-//         'normalize.css'
-//     );
-// });
-
-// elixir(function(mix) {
-//     mix.styles([
-//         "normalize.css",
-//         "main.css"
-//     ], 'public/build/css/everything.css');
-// });

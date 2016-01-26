@@ -8,7 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LoginRequest;
 use App\Model\Admin\User;
-use View,Hash;
+use View;
+use Hash;
 
 class LoginController extends Controller
 {
@@ -46,7 +47,7 @@ class LoginController extends Controller
         {
             if ($getData[0]->status == 1)
             {
-                if (Hash::check($request->input('password'),$getData[0]->password)) 
+                if (Hash::check($request->input('password'),$getData[0]->password))
                 {
                     $setSession['id']           = $getData[0]->id ;
                     $setSession['username']     = $getData[0]->username ;
@@ -55,10 +56,10 @@ class LoginController extends Controller
 
                     $request->session()->put('backoffice',$setSession);
 
-                    return redirect()->action('Admin\DashboardController@index') ;    
+                    return redirect()->action('Admin\DashboardController@index') ;
                 }
                 else
-                {   
+                {
                     $MessageShow                = trans('banner_messages.passwordFail') ;
                 }
             }
