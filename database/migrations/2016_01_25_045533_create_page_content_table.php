@@ -20,6 +20,7 @@ class CreatePageContentTable extends Migration
             $table->string('name', 255);
             $table->string('link_url', 255);
             $table->string('image_url', 255);
+            $table->integer('parent_id')->unsigned()->comment = 'not parent default 0';
             $table->integer('sort_order')->comment = 'order for display on frontend';
             $table->date('start');
             $table->date('end');

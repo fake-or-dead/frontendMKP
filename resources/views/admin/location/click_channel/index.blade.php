@@ -54,9 +54,9 @@
                     <td align="center">{{ $val->sort_order }}</td>
                     <td align="center">
                       @if ($val->status == 1)
-                        {{ trans('Admin/text_message.CC_status_open') }}
+                        <i class="fa fa-check-circle fa-fw text-success fa-lg statuschg" data-status="2"></i>
                       @else ($val->status == 2)
-                        {{ trans('Admin/text_message.CC_status_close') }}
+                        <i class="fa fa-times-circle fa-fw text-danger fa-lg statuschg" data-status="1"></i>
                       @endif
                     </td>
                     <td align="center">

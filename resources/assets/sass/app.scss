@@ -1,6 +1,4 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-.app
-{
-	color:#eeeeed;
-	float: left;
-}
+@import 'bootstrap';
+@import 'bootstrap-select';
+@import 'custom';
+@import 'flickity';

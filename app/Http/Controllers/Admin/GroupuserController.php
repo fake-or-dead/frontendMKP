@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\GroupUser;
 use App\Http\Requests\Admin\GroupuserRequest;
-use View,Config ;
+use View;
+use Config ;
 
 class GroupuserController extends Controller
 {
@@ -22,15 +23,15 @@ class GroupuserController extends Controller
 			$setData['data'] 		= GroupUser::orWhere('id', 'LIKE', '%'.$search.'%')
 										->orWhere('group_name', 'LIKE', '%'.$search.'%')
 										->orderBy('id', 'desc')
-										->paginate(Config::get('admin.defultRecord'));		
+										->paginate(Config::get('admin.defultRecord'));
 
 			$setData['pagination'] 	= $setData['data']->appends(['q' => $request->input('q')])->links() ;
-			$setData['search'] 		= $request->input('q') ; 
+			$setData['search'] 		= $request->input('q') ;
 		}
 		else
 		{
 			$setData['data'] 		= GroupUser::orderBy('id' , 'desc')
-										->paginate(Config::get('admin.defultRecord'));	
+										->paginate(Config::get('admin.defultRecord'));
 
 			$setData['pagination'] 	= $setData['data']->links() ;
 		}
@@ -43,7 +44,7 @@ class GroupuserController extends Controller
 		$setData['action']			= 'create' ;
 		$setData['data'] 			= [];
 		return View::make('admin.groupuser.add_edit', $setData) ;
-	}	
+	}
 	public function edit(int $id)
 	{
 		$setData['data'] 			= GroupUser::where('id', $id)->get() ;
@@ -60,7 +61,7 @@ class GroupuserController extends Controller
 		}
 	}
 	public function update(GroupuserRequest $request, int $id)
-    {        
+    {
         GroupUser::where('id',$id)->update($request->except(['_token','_method']));
         return redirect()->action('Admin\GroupuserController@index');
     }
