@@ -18,18 +18,37 @@ class ShopOfTheWeek extends Model
 
   protected static function boot()
   {
+
+    parent::boot();
+
     static::addGlobalScope('ShopOfTheWeek', function(Builder $builder) {
-      $builder->where('location_id', Location::where('types', self::$type)->where('parent_id', 0)->first()->id);
+      $builder->where('location_id', Location::where('types', self::$type)->first()->id);
     });
 
     static::creating(function ($ShopOfTheWeek) {
-      $ShopOfTheWeek->location_id = Location::where('types', self::$type)->where('parent_id', 0)->first()->id ;
+      d($ShopOfTheWeek) ;
+      $ShopOfTheWeek->location_id = Location::where('types', self::$type)->first()->id ;
     });
+
+
+
+    static::saving(function($model)
+    {
+      d('savingW') ;
+    });
+
+
+    static::updating(function($model)
+    {
+      d('golf') ;
+    });
+
+    // d(11111) ;
   }
 
   public static function getLocation()
   {
-    return Location::where('types', 'ShopOfTheWeek')->where('types', 'ShopOfTheWeek')->where('parent_id', 0) ;
+    return Location::where('types', 'ShopOfTheWeek')->where('types', self::$type) ;
   }
 
   public function location()
@@ -37,23 +56,8 @@ class ShopOfTheWeek extends Model
     return $this->belongsTo(Location::class, 'location_id');
   }
 
-  public function scopeLocation($query)
-  {
-      return $query->where('types', 'ShopOfTheWeek')->where('parent_id', 0);
-  }
-
   public function user()
   {
     return $this->belongsTo(User::class, 'user_id');
   }
-
-  // public function pageContents()
-  // {
-  //   return $this->hasMany(PageContent::class, 'location_id');
-  // }
-
-  // public function subLocations()
-  // {
-  //   return $this->hasMany(Location::class, 'parent_id');
-  // }
 }

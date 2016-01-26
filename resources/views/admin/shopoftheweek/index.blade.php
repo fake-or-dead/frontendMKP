@@ -16,7 +16,7 @@
           </form>
         </div>
         <div class="pull-right">
-          <a href="{{ action('Admin\ShopOfTheWeekController@create') }}" class="btn btn-default">{{ trans('admin/text_message.createUser') }}</a>
+          <a href="{{ action('Admin\ShopOfTheWeekController@create') }}" class="btn btn-default">{{ trans('admin/text_message.createShopOfTheWeek') }}</a>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
                   @foreach( $data as $key => $val )
                     <tr class="">
                       <td>{{ $val->id }}</td>
-                      <td>{{ $val->user->username . '('.$val->user->first_name.' '.$val->user->last_name.')' }}</td>
+                      <td>{{ (isset($val->user)?$val->user->username . '('.$val->user->first_name.' '.$val->user->last_name.')':'') }}</td>
                       <td>{{ $val->name }}</td>
                       <td><a target="_blank" href="{{ $val->link_url }}">{{ $val->link_url }}</a></td>
                       <td>{{ $val->image_url }}</td>
