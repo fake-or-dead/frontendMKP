@@ -134,6 +134,14 @@ class ShopOfTheWeekController extends Controller
       ShopOfTheWeek::where('id', $id)->save();
 
       d(232) ;
+
+
+
+
+
+
+
+
       // return redirect()->action('Admin\ShopOfTheWeekController@index');
 
 
