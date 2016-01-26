@@ -38,50 +38,50 @@ class Creatework extends Command
     public function handle()
     {
         $argument       = explode('/', $this->argument('name'));
-        
-        if (!empty($argument[0]) && !empty($argument[1])) 
+
+        if (!empty($argument[0]) && !empty($argument[1]))
         {
             $namespace  = trim('\ ').$argument[0] ;
             $className  = $argument[1] ;
 
             $dir            = 'app/Http/Controllers/'.ucfirst($argument[0]) ;
 
-            if (!file_exists($dir) && !is_dir($dir)) 
+            if (!file_exists($dir) && !is_dir($dir))
             {
-                mkdir($dir);         
+                mkdir($dir);
             }
 
             $dir            = 'app/Http/Requests/'.ucfirst($argument[0]) ;
 
-            if (!file_exists($dir) && !is_dir($dir)) 
+            if (!file_exists($dir) && !is_dir($dir))
             {
-                mkdir($dir);         
+                mkdir($dir);
             }
 
             if ( $this->argument('type') == 'admin')
             {
                 $dir            = 'resources/views/admin' ;
 
-                if (!file_exists($dir) && !is_dir($dir)) 
+                if (!file_exists($dir) && !is_dir($dir))
                 {
-                    mkdir($dir);         
+                    mkdir($dir);
                 }
 
                 $dir            = 'resources/views/admin/'.strtolower($argument[1]) ;
 
-                if (!file_exists($dir) && !is_dir($dir)) 
+                if (!file_exists($dir) && !is_dir($dir))
                 {
-                    mkdir($dir);         
-                }                 
+                    mkdir($dir);
+                }
             }
             else
             {
                 $dir            = 'resources/views/admin/'.strtolower($this->argument('name')) ;
 
-                if (!file_exists($dir) && !is_dir($dir)) 
+                if (!file_exists($dir) && !is_dir($dir))
                 {
-                    mkdir($dir);         
-                }     
+                    mkdir($dir);
+                }
             }
         }
         else
@@ -90,17 +90,17 @@ class Creatework extends Command
             $className  = $this->argument('name') ;
         }
 
-        if ($this->createController($namespace, $className)) 
+        if ($this->createController($namespace, $className))
         {
             $this->info( 'Controller Create success.' );
         }
 
-        if ($this->createRequest($namespace, $className)) 
+        if ($this->createRequest($namespace, $className))
         {
             $this->info( 'Request Create success.' );
         }
 
-        if ($this->createView($namespace, $className, $argument)) 
+        if ($this->createView($namespace, $className, $argument))
         {
             $this->info( 'View Create success.' );
         }
@@ -134,90 +134,95 @@ use App\Http\Controllers\Controller;
 
 class {$nameClass}Controller extends Controller
 {
-    /**
-    * DateCreate ".date('Y-m-d')."
-    * Create By ".$this->argument('nameUserCreate')."
-    */
+  /**
+  * DateCreate ".date('Y-m-d')."
+  * Create By ".$this->argument('nameUserCreate')."
+  */
 
-    /**
-    * Display a listing of the resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
-    public function index()
-    {
-        return View::make('{$defaultView}') ;
-    }
+  public function __construct()
+  {
+    \$this->middleware('ajax', ['only' => ['destroy']]);
+  }
 
-    /**
-    * Show the form for creating a new resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
-    public function create()
-    {
-        //
-    }
+  /**
+  * Display a listing of the resource.
+  *
+  * @return \Illuminate\Http\Response
+  */
+  public function index()
+  {
+      return View::make('{$defaultView}') ;
+  }
 
-    /**
-    * Store a newly created resource in storage.
-    *
-    * @param  App\Http\Requests".$namespace."\\".$nameClass."Request  \$request
-    * @return \Illuminate\Http\Response
-    */
-    public function store({$nameClass}Request \$request)
-    {
-        //
-    }
+  /**
+  * Show the form for creating a new resource.
+  *
+  * @return \Illuminate\Http\Response
+  */
+  public function create()
+  {
+      //
+  }
 
-    /**
-    * Display the specified resource.
-    *
-    * @param  int  \$id
-    * @return \Illuminate\Http\Response
-    */
-    public function show(int \$id)
-    {
-        //
-    }
+  /**
+  * Store a newly created resource in storage.
+  *
+  * @param  App\Http\Requests".$namespace."\\".$nameClass."Request  \$request
+  * @return \Illuminate\Http\Response
+  */
+  public function store({$nameClass}Request \$request)
+  {
+      //
+  }
 
-    /**
-    * Show the form for editing the specified resource.
-    *
-    * @param  int  \$id
-    * @return \Illuminate\Http\Response
-    */
-    public function edit(int \$id)
-    {
-        //
-    }
+  /**
+  * Display the specified resource.
+  *
+  * @param  int  \$id
+  * @return \Illuminate\Http\Response
+  */
+  public function show(int \$id)
+  {
+      //
+  }
 
-    /**
-    * Update the specified resource in storage.
-    *
-    * @param  App\Http\Requests".$namespace."\\".$nameClass."Request  \$request
-    * @param  int  \$id
-    * @return \Illuminate\Http\Response
-    */
-    public function update({$nameClass}Request \$request, int \$id)
-    {
-        //
-    }
+  /**
+  * Show the form for editing the specified resource.
+  *
+  * @param  int  \$id
+  * @return \Illuminate\Http\Response
+  */
+  public function edit(int \$id)
+  {
+      //
+  }
 
-    /**
-    * Remove the specified resource from storage.
-    *
-    * @param  int  \$id
-    * @return \Illuminate\Http\Response
-    */
-    public function destroy(int \$id)
-    {
-        //
-    }
+  /**
+  * Update the specified resource in storage.
+  *
+  * @param  App\Http\Requests".$namespace."\\".$nameClass."Request  \$request
+  * @param  int  \$id
+  * @return \Illuminate\Http\Response
+  */
+  public function update({$nameClass}Request \$request, int \$id)
+  {
+      //
+  }
+
+  /**
+  * Remove the specified resource from storage.
+  *
+  * @param  int  \$id
+  * @return \Illuminate\Http\Response
+  */
+  public function destroy(int \$id)
+  {
+    //
+  }
 }";
         fwrite($myfile, $txt);
         fclose($myfile);
-        return true ;        
+        return true ;
     }
 
     private function createRequest(string $namespace, string $nameClass)
@@ -231,60 +236,60 @@ use App\Http\Requests\Request;
 
 class ".$nameClass."Request extends Request
 {
-    /**
-    * DateCreate ".date('Y-m-d')."
-    * Create By ".$this->argument('nameUserCreate')."
-    */
+  /**
+  * DateCreate ".date('Y-m-d')."
+  * Create By ".$this->argument('nameUserCreate')."
+  */
 
-    /**
-    * Determine if the user is authorized to make this request.
-    *
-    * @return bool
-    */
-    public function authorize()
+  /**
+  * Determine if the user is authorized to make this request.
+  *
+  * @return bool
+  */
+  public function authorize()
+  {
+    return true;
+  }
+
+  /**
+  * Get the validation rules that apply to the request.
+  *
+  * @return array
+  */
+  public function rules()
+  {
+    switch(\$this->method())
     {
-        return true;
+      case 'GET':
+      case 'DELETE':
+      case 'POST':
+      {
+          return [] ;
+      }
+      case 'PUT':
+      case 'PATCH':
+      {
+          return [];
+      }
+      default:break;
+    }
+  }
+
+  /**
+  * Change Language from user choose.
+  *
+  * @return array
+  */
+  public function messages()
+  {
+    if (in_array(\$this->session()->get('lang'), Config('admin.listTransLang')))
+    {
+      return [] ;
     }
 
-    /**
-    * Get the validation rules that apply to the request.
-    *
-    * @return array
-    */
-    public function rules()
-    {
-        switch(\$this->method())
-        {
-            case 'GET':
-            case 'DELETE':
-            case 'POST':
-            {
-                return [] ;
-            }
-            case 'PUT':
-            case 'PATCH':
-            {
-                return [];
-            }
-            default:break;
-        }
-    }
-
-    /**
-    * Change Language from user choose.
-    *
-    * @return array
-    */
-    public function messages()
-    {
-        if (in_array(\$this->session()->get('lang'), Config('admin.listTransLang'))) 
-        {
-            return [] ;
-        }
-
-        return [] ;
-    }
-}";       
+    return [] ;
+  }
+}";
         fwrite($myfile, $txt);
         fclose($myfile);
         return true ;
@@ -300,7 +305,7 @@ class ".$nameClass."Request extends Request
         {
             $fileGen        = 'resources/views/'.strtolower($this->argument('name')).'/index.blade.php' ;
         }
-        
+
         $myfile         = fopen($fileGen, "w") or die("Unable to open file!");
 $txt = '@extends("admin.common.main")
 @section("content")
