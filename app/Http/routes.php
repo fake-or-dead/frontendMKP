@@ -24,39 +24,17 @@
 
 
 Route::group(['middleware' => ['bannertoolcheckpermission']], function () {
+	Route::group(['prefix' => 'admin'], function () {
+    Route::resource('/groupuser', 'Admin\GroupuserController', ['except' => ['show']]);
+		Route::resource('/user', 'Admin\UserController', ['except' => ['show']]);
+		Route::resource('/location', 'Admin\LocationController', ['except' => ['show']]);
+		Route::resource('/login', 'Admin\LoginController', ['only'=>['index', 'store']]);
+		Route::resource('/dashboard', 'Admin\DashboardController', ['only'=>'index']);
+		Route::resource('/banner', 'Admin\BannerController');
 
-	Route::resource('admin/groupuser', 'Admin\GroupuserController', ['except' => ['show']]);
-	Route::resource('admin/user', 'Admin\UserController', ['except' => ['show']]);
-	Route::resource('admin/location', 'Admin\LocationController', ['except' => ['show']]);
-	Route::resource('admin/login', 'Admin\LoginController', ['only'=>['index', 'store']]); 
-
-	
-
-	Route::get('golf',function(Illuminate\Http\Request $request)
-	{
-		// $golf = [
-		// 			['id'=>12,'name'=>'golf'] ,
-		// 			['id'=>13,'name'=>'golf1'] ,
-		// 			['id'=>14,'name'=>'golf2'] ,
-		// 			['id'=>15,'name'=>'golf3'] ,
-		// 	];
-
-		// // $collection = collect($golf) ;
-
-		// return $collection = collect(['taylor', 'abigail', null])->map(function ($name) {
-		//     return strtoupper($name);
-		// }) ;
-
-		// dd($collection) ;
-		d( $request->session()->all() ) ;
-		// return action('banner\UserController@create');
+		Route::get('/logout', 'Admin\LoginController@logout');
+		Route::get('/changelang', 'Admin\LoginController@lang');
 	});
-
-	Route::resource('admin/dashboard', 'Admin\DashboardController', ['only'=>'index']); 
-
-	Route::get('admin/logout', 'Admin\LoginController@logout');
-	Route::get('admin/changelang', 'Admin\LoginController@lang');
-	
 });
 
 
