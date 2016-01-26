@@ -52,8 +52,8 @@
                     <td>{{ $pageContent->link_url }}</td>
                     <td>{{ $pageContent->image_url }}</td>
                     <td class="center">
-                      <a href="{{ action('Admin\LocationController@edit',['id'=>$val->id]) }}" class="btn btn-default">{{ trans('banner_messages.edit') }}</a>
-                      <button onclick="deleteFn('{{ action('Admin\LocationController@destroy',['id'=>$val->id]) }}')" type="reset" class="btn btn-default">{{ trans('banner_messages.delete') }}</button>
+                      <a class="btn btn-default">{{ trans('banner_messages.edit') }}</a>
+                      <button type="reset" class="btn btn-default">{{ trans('banner_messages.delete') }}</button>
                     </td>
                   </tr>
                 @endforeach
