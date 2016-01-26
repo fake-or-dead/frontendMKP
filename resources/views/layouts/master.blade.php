@@ -118,7 +118,7 @@
       <div class="col-lg-12 ">
 
       <!-- Flickity HTML init -->
-      <div class="gallery gallery-main js-flickity" data-flickity-options='{ "cellAlign": "left", "pageDots": false}'>
+      <div class="gallery gallery-main js-flickity" data-flickity-options='{ "cellAlign": "left", "pageDots": false, "freeScroll": true, "wrapAround": true}'>
         <div class="gallery-cell">
             <img src="images/banner_1.jpg" title="" alt="" />
           </div>
