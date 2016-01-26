@@ -5,7 +5,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Banner;
 use App\Model\Admin\Location;
-use View,Config;
+
+use View;
+use Config;
+
 class BannerController extends Controller
 {
     /**
