@@ -13,7 +13,7 @@ return [
 
 	'upload' 							=> [
 														'admin' => [
-																	'path' 		=> public_path('upload/image'),
+																	'path' 		=> public_path('image'),
 																	'storage'	=> 1024,
 																	'mimes' 	=> 'jpeg,gif,png'
 																	]

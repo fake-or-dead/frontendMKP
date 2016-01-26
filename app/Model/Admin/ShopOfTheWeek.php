@@ -10,30 +10,45 @@ class ShopOfTheWeek extends Model
 {
   use SoftDeletes;
 
-  protected $table        = 'location';
+  protected $table        = 'page_content';
   protected $dates        = ['deleted_at'];
   protected $softDelete   = true;
-  protected $fillable     = ['id', 'user_id', 'parent_id','location_name','sort_order','limit','width','height','flag_last','type','status'];
+  protected $fillable     = ['location_id', 'user_id', 'name','link_url','image_url','sort_order','start','end','status'];
 
-  protected static function boot()
+  // protected static function boot()
+  // {
+  //   static::addGlobalScope('location', function(Builder $builder) {
+  //     $builder->where('types', 'ShopOfTheWeek')->where('parent_id', 0);
+  //   });
+  // }
+
+  public static function getLocation()
   {
-    static::addGlobalScope('ShopOfTheWeek', function(Builder $builder) {
-      $builder->where('types', 'ShopOfTheWeek')->where('parent_id', 0);
-    });
+    return \App\Model\Admin\Location::where('types', 'ShopOfTheWeek')->where('types', 'ShopOfTheWeek')->where('parent_id', 0) ;
   }
 
-  public function user()
+  public function location()
   {
-    return $this->belongsTo(User::class, 'user_id');
+    return $this->belongsTo(\App\Model\Admin\Location::class, 'location_id');
   }
 
-  public function pageContents()
+  public function scopeLocation($query)
   {
-    return $this->hasMany(PageContent::class, 'location_id');
+      return $query->where('types', 'ShopOfTheWeek')->where('parent_id', 0);
   }
 
-  public function subLocations()
-  {
-    return $this->hasMany(Location::class, 'parent_id');
-  }
+  // public function user()
+  // {
+  //   return $this->belongsTo(User::class, 'user_id');
+  // }
+
+  // public function pageContents()
+  // {
+  //   return $this->hasMany(PageContent::class, 'location_id');
+  // }
+
+  // public function subLocations()
+  // {
+  //   return $this->hasMany(Location::class, 'parent_id');
+  // }
 }

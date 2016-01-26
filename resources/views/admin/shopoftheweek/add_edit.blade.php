@@ -17,7 +17,7 @@
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <form class="form-horizontal" action="{{ $actionLink }}" method="post">
+      <form class="form-horizontal" action="{{ $actionLink }}" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label class="col-sm-2 control-label">{{ trans('admin/text_message.nameShopOfTheWeek') }}</label>
           <div class="col-sm-10">
@@ -33,20 +33,20 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">{{ trans('admin/text_message.image') }}</label>
           <div class="col-sm-10">
-            <input class="form-control input-sm" name="image" type="file" >
+            <input class="form-control input-sm" name="imageupload" type="file" >
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-2 control-label">{{ trans('banner_messages.status') }}</label>
+          <label class="col-sm-2 control-label">{{ trans('admin/text_message.status') }}</label>
           <div class="col-sm-10">
             <div class="radio col-sm-4">
               <label>
-                <input value="1" type="radio" name="status" {{ (isset($data[0]->status) && $data[0]->status == 1 ? 'checked': (old('status')==1?'checked':'')) }} id="optionsRadios1" value="yes">{{ trans('banner_messages.active') }}
+                <input value="1" type="radio" name="status" {{ (isset($data[0]->status) && $data[0]->status == 1 ? 'checked': (old('status')==1?'checked':'')) }} id="optionsRadios1" value="yes">{{ trans('admin/text_message.active') }}
               </label>
             </div>
             <div class="radio col-sm-4">
               <label>
-                <input value="0" type="radio" name="status" {{ (isset($data[0]->status) && $data[0]->status == 0 ? 'checked': (!empty(old('status'))&&old('status')==0?'checked':'')) }} id="optionsRadios2" value="no">{{ trans('banner_messages.noneActive') }}
+                <input value="0" type="radio" name="status" {{ (isset($data[0]->status) && $data[0]->status == 0 ? 'checked': (!empty(old('status'))&&old('status')==0?'checked':'')) }} id="optionsRadios2" value="no">{{ trans('admin/text_message.noneActive') }}
               </label>
             </div>
           </div>
@@ -58,6 +58,8 @@
               <input type="hidden" name="_method" value="PATCH" >
             @endif
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+            <input type="" name="location_id" value="{{ $location_id }}">
             <button type="submit" class="btn btn btn-success input-sm">{{ trans('admin/text_message.'.$action) }}</button>
             <button type="reset" class="btn btn-default input-sm">{{ trans('admin/text_message.resetBtn') }}</button>
           </div>

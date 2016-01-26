@@ -38,9 +38,9 @@ class ShopOfTheWeekRequest extends Request
       {
         self::setSize();
         return [
-                'name'      => 'required',
-                'link_url'  => 'required',
-                'image'     => 'required|image|image_size:'.self::$width.','.self::$height.'|mimes:'.Config::get('admin.upload.admin.mimes').'|max:'.Config::get('admin.upload.admin.storage'),
+                'name'        => 'required|alpha_dash',
+                'link_url'    => 'required|alpha_dash',
+                // 'imageupload' => 'required|image|image_size:'.self::$width.','.self::$height.'|mimes:'.Config::get('admin.upload.admin.mimes').'|max:'.Config::get('admin.upload.admin.storage'),
         ];
       }
       case 'PUT':
@@ -61,7 +61,17 @@ class ShopOfTheWeekRequest extends Request
   {
     if (in_array($this->session()->get('lang'), Config('admin.listTransLang')))
     {
-      return [] ;
+      return [
+        'name.required'           => trans('admin/text_message.nameShopOfTheWeek') . ' ' . trans('error.required'),
+        'name.alpha_dash'         => trans('admin/text_message.nameShopOfTheWeek') . ' ' . trans('error.alpha_dash'),
+        'link_url.required'       => trans('admin/text_message.link_url') . ' ' . trans('error.required'),
+        'limit.alpha_dash'        => trans('admin/text_message.link_url') . ' ' . trans('error.alpha_dash'),
+        'imageupload.required'    => trans('admin/text_message.imageupload') . ' ' . trans('error.required'),
+        'imageupload.image'       => trans('error.image'),
+        'imageupload.image_size'  => trans('admin/text_message.imageupload') . ' ' . trans('error.image_size'),
+        'imageupload.mimes'       => trans('admin/text_message.imageupload') . ' ' . trans('error.mimes'),
+        'imageupload.max'         => trans('admin/text_message.imageupload') . ' ' . trans('error.imageSizeMax'),
+      ];
     }
 
     return [] ;
@@ -70,11 +80,10 @@ class ShopOfTheWeekRequest extends Request
   /**
   * Change Language from user choose.
   *
-  * @return size width height
   */
   private static function setSize()
   {
-    $dataSelect     = ShopOfTheWeek::first();
+    $dataSelect     = ShopOfTheWeek::getLocation()->first();
     self::$width    = $dataSelect->width;
     self::$height   = $dataSelect->height;
   }

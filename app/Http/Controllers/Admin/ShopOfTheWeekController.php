@@ -51,9 +51,12 @@ class ShopOfTheWeekController extends Controller
     */
     public function create()
     {
+
+      $setData['location_id'] = ShopOfTheWeek::getLocation()->first()->id ;
       $setData['actionLink']  = action('Admin\ShopOfTheWeekController@store') ;
       $setData['action']      = 'create' ;
       $setData['data']        = [];
+
       return View::make('admin.shopoftheweek.add_edit', $setData) ;
     }
 
@@ -65,7 +68,16 @@ class ShopOfTheWeekController extends Controller
     */
     public function store(ShopOfTheWeekRequest $request)
     {
-      d($_POST) ;
+      $nameImage                = 'ShopOfTheWeek-'.date('YmdHis').'.'.$request->file('imageupload')->guessExtension() ;
+      $request->file('imageupload')->move(Config('admin.upload.admin.path'), $nameImage);
+
+      $dataInsert               = $request->except(['_token','imageupload']) ;
+      $dataInsert['user_id']    = $request->session()->get('backoffice')['id'] ;
+      $dataInsert['link_url']   = $nameImage ;
+
+      dd($dataInsert) ;
+      Location::create(beforeSql($dataInsert));
+      return redirect()->action('Admin\LocationController@index');
     }
 
     /**

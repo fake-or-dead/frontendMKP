@@ -70,6 +70,12 @@
   'editLocation'      => 'แก้ไขตำแน่ง',
   // ahop of the week
   'createShopOfTheWeek'   => 'สร้าง',
-  'ShopOfTheWeek'     => 'Shop of The Week'
+  'ShopOfTheWeek'     => 'Shop of The Week',
+  'nameShopOfTheWeek' => 'ชื่อ',
+  'image'             => 'รูปภาพ',
+  'imageupload'       => 'รูปภาพ',
+
+  'link'              => 'Link Url',
+  'link_url'          => 'Link Url',
 
 ];
