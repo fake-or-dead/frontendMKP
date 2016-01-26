@@ -28,9 +28,8 @@ Route::group(['middleware' => ['bannertoolcheckpermission']], function () {
 	Route::resource('admin/groupuser', 'Admin\GroupuserController', ['except' => ['show']]);
 	Route::resource('admin/user', 'Admin\UserController', ['except' => ['show']]);
 	Route::resource('admin/location', 'Admin\LocationController', ['except' => ['show']]);
-	Route::resource('admin/login', 'Admin\LoginController', ['only'=>['index', 'store']]); 
-
-	
+	Route::resource('admin/login', 'Admin\LoginController', ['only'=>['index', 'store']]);
+	Route::resource('admin/privileges', 'Admin\PrivilegesController', ['except'=>['show']]);
 
 	Route::get('golf',function(Illuminate\Http\Request $request)
 	{
@@ -52,11 +51,11 @@ Route::group(['middleware' => ['bannertoolcheckpermission']], function () {
 		// return action('banner\UserController@create');
 	});
 
-	Route::resource('admin/dashboard', 'Admin\DashboardController', ['only'=>'index']); 
+	Route::resource('admin/dashboard', 'Admin\DashboardController', ['only'=>'index']);
 
 	Route::get('admin/logout', 'Admin\LoginController@logout');
 	Route::get('admin/changelang', 'Admin\LoginController@lang');
-	
+
 });
 
 

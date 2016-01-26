@@ -72,4 +72,20 @@
   'createShopOfTheWeek'   => 'สร้าง',
   'ShopOfTheWeek'     => 'Shop of The Week'
 
+  //Privileges
+    'titleprivileges' => 'Privileges / สิทธิประโยชน์',
+    'createprivileges' => 'Add Privileges / เพิ่มสิทธิประโยชน์',
+    'pv_topic' => 'รายการสิทธิประโยชน์',
+    'pv_link' => 'ลิ้งค์ URL',
+    'pv_image' => 'ภาพ',
+    'pv_startdate' => 'วันเริ่ม',
+    'pv_enddate' => 'วันสิ้นสุด',
+    'pv_starttime' => 'เวลาเริ่ม',
+    'pv_endtime' => 'เวลาสิ้นสุด',
+    'pv_sort' => 'ลำดับ',
+    'pv_status' => 'สถานะ',
+    'pv_action' => 'เครื่องมือ',
+    'editprivileges' => 'Update Privileges / แก้ไขสิทธิประโยชน์',
+    'backBtn' => 'ย้อนกลับ',
+
 ];
