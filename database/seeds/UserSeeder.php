@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
                 'last_name' => $faker->lastName,
                 'position' => $faker->companySuffix,
                 'department' => $faker->company,
-                'status' => rand(0, 1)
+                'status' => ($index == 0)? 1 : rand(0, 1)
             ]);
         }
     }

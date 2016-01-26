@@ -15,7 +15,7 @@ class CreateImageDescriptionTable extends Migration
         Schema::create('image_description', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->integer('page_content_id');
+            $table->integer('page_content_id')->unsigned()->index();
             $table->string('title_name', 255);
             $table->string('description', 1000);
             $table->string('detail', 255);
