@@ -1,15 +1,11 @@
 <?php
-
 namespace App\Model\Admin;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Builder;
-
 class ShopOfTheWeek extends Model
 {
   use SoftDeletes;
-
   protected $table            = 'page_content';
   protected $dates            = ['deleted_at'];
   protected $softDelete       = true;
@@ -24,7 +20,6 @@ class ShopOfTheWeek extends Model
     static::addGlobalScope('ShopOfTheWeek', function(Builder $builder) {
       $builder->where('location_id', Location::where('types', self::$type)->first()->id);
     });
-
     static::creating(function ($ShopOfTheWeek) {
       d($ShopOfTheWeek) ;
       $ShopOfTheWeek->location_id = Location::where('types', self::$type)->first()->id ;
@@ -45,17 +40,14 @@ class ShopOfTheWeek extends Model
 
     // d(11111) ;
   }
-
   public static function getLocation()
   {
     return Location::where('types', 'ShopOfTheWeek')->where('types', self::$type) ;
   }
-
   public function location()
   {
     return $this->belongsTo(Location::class, 'location_id');
   }
-
   public function user()
   {
     return $this->belongsTo(User::class, 'user_id');

@@ -38,8 +38,8 @@ Route::group(['middleware' => ['bannertoolcheckpermission']], function () {
 	Route::resource('admin/shopoftheweek', 'Admin\ShopOfTheWeekController', ['except'=>['show']]);
 	Route::resource('admin/dashboard', 		 'Admin\DashboardController', ['only'=>'index']);
 
-	Route::get('admin/logout', 'Admin\LoginController@logout');
-	Route::get('admin/changelang', 'Admin\LoginController@lang');
+	Route::get('admin/logout', 						 'Admin\LoginController@logout');
+	Route::get('admin/changelang', 				 'Admin\LoginController@lang');
 });
 
 Route::group(['middleware' => ['frontend']], function () { });

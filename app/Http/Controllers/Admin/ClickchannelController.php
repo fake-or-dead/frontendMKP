@@ -24,7 +24,7 @@ class ClickchannelController extends Controller
   */
   public function index()
   {
-    $Setdata['data'] = ClickChannel::where(['location_id' => 3])->orderBy('sort_order','desc')->get();
+    $Setdata['data'] = ClickChannel::orderBy('sort_order','desc')->get();
     return View::make($this->default_path.'index', $Setdata) ;
   }
 
@@ -55,7 +55,7 @@ class ClickchannelController extends Controller
       $upDateData['link_url'] = last($exp_link_url);
     }
     $dataInsert['location_id']      = 3; /* Location View Page */
-    $dataInsert['sort_order']       = ClickChannel::where(['location_id' => 3])->max('sort_order')+1;
+    $dataInsert['sort_order']       = ClickChannel::max('sort_order')+1;
     $dataInsert['user_id']          = 1 ;
     ClickChannel::create(beforeSql($dataInsert));
     return redirect()->action($this->controller_path.'index');
@@ -90,7 +90,7 @@ class ClickchannelController extends Controller
       }
       else
       {
-        return View::make($this->default_path.'index', $setData) ;
+        return redirect()->action($this->controller_path.'index');
       }
     }
     else

@@ -1,5 +1,5 @@
 (function() {
-  var linkDelete;
+  var linkDelete, linkChgStatus, SetStatus;
 
   $(function() {
     $('[name=typepopup]').change(function() {
@@ -11,6 +11,16 @@
         $('#imagebox').css('display', 'none');
         $('#youtubebox').css('display', '');
       }
+    });
+    $('.statuschg').click(function(){
+      // Setstatus = statuschg;
+      linkChgStatus = $(this).data('url');
+      SetStatus = $(this).data('status');
+      $('#closeFullbox-Changstatus .btnClosechg').css('display', 'none');
+      $('#closeFullbox-Changstatus .btnChg').css('display', '');
+      $('#myModalLabel-Changstatus').html(titleErrorAlert);
+      $('#bodyFullbox-Changstatus').html(msgConfirmChgstatus);
+      $('#myModal-Changstatus').modal('show');
     });
   });
 
@@ -56,9 +66,9 @@
     linkDelete = link;
     $('#closeFullbox .btnClose').css('display', 'none');
     $('#closeFullbox .btnDelete').css('display', '');
-    $('#myModalLabel').html(titleErrorAlert);
-    $('#bodyFullbox').html(msgConfirmDelete);
-    $('#myModal').modal('show');
+    $('#myModalLabel-Changstatus').html(titleErrorAlert);
+    $('#bodyFullbox-Changstatus').html(msgConfirmDelete);
+    $('#myModal-Changstatus').modal('show');
   };
 
   $.ajaxSetup({
@@ -74,8 +84,21 @@
       cache: false,
       data: '&_method=delete',
       success: function(msg) {
-        console.log(msg);
         if (msg === '1') {
+          location.reload();
+        }
+      }
+    });
+  };
+
+  this.ajaxChgStatus = function() {
+    $.ajax({
+      type: 'POST',
+      url: linkDelete,
+      cache: false,
+      data: '&_method=update',
+      success: function(msg) {
+        if (msg) {
           location.reload();
         }
       }
@@ -92,6 +115,10 @@
       reader.readAsDataURL(input.files[0]);
     }
   };
+
+  $('#imgInp').change(function() {
+    readURL(this);
+  });
 
   $('#imgInp').change(function() {
     readURL(this);
