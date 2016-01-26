@@ -38,6 +38,10 @@ class ShopOfTheWeek extends Model
       d('golf') ;
     });
 
+
+
+
+
     // d(11111) ;
   }
   public static function getLocation()
