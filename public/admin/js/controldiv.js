@@ -82,6 +82,21 @@
     });
   };
 
+  this.readURL = function(input) {
+    var reader;
+    if (input.files && input.files[0]) {
+      reader = new FileReader;
+      reader.onload = function(e) {
+        $('#blah').attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  };
+
+  $('#imgInp').change(function() {
+    readURL(this);
+  });
+
 }).call(this);
 
 //# sourceMappingURL=controldiv.js.map

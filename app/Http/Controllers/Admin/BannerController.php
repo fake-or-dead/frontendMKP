@@ -1,15 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Banner;
 use App\Model\Admin\Location;
 use View,Config;
-
 class BannerController extends Controller
 {
     /**
@@ -24,7 +20,6 @@ class BannerController extends Controller
             'banner' => $banner
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +29,6 @@ class BannerController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -45,7 +39,6 @@ class BannerController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -56,7 +49,6 @@ class BannerController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -67,7 +59,6 @@ class BannerController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -79,7 +70,6 @@ class BannerController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
