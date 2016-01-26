@@ -20,7 +20,6 @@ class CreateLocationTable extends Migration
             $table->integer('limit')->unsigned()->comment = 'not limit default 0';
             $table->integer('width')->comment = 'not limit default 0';
             $table->integer('height')->comment = 'not limit default 0';
-            $table->integer('parent_id')->unsigned()->comment = 'not parent default 0';
             $table->integer('sort_order')->unsigned();
             $table->enum('types', ['Banner', 'Privilege', 'ClickChanel', 'ShopOfTheWeek'])->index();
             $table->tinyInteger('flag_last')->comment = 'for check this is last item 0 = not last, 1 = is last';
