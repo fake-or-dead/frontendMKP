@@ -30,6 +30,7 @@ Route::group(['middleware' => ['bannertoolcheckpermission']], function () {
 	Route::resource('admin/location', 'Admin\LocationController', ['except' => ['show']]);
 	Route::resource('admin/login', 'Admin\LoginController', ['only'=>['index', 'store']]);
 	Route::resource('admin/privileges', 'Admin\PrivilegesController', ['except'=>['show']]);
+	Route::resource('admin/clickchannel', 'Admin\ClickchannelController', ['except'=>['show']]);
 	Route::resource('admin/banner', 'Admin\BannerController');
 
 	Route::get('golf',function(Illuminate\Http\Request $request)
