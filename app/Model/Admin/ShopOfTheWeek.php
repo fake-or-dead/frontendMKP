@@ -14,16 +14,16 @@ class ShopOfTheWeek extends Model
   protected $dates            = ['deleted_at'];
   protected $softDelete       = true;
   protected $fillable         = ['location_id', 'user_id', 'name','link_url','image_url','sort_order','start','end','status'];
-  private static $location_id = 4 ;
+  private static $type        = 'ShopOfTheWeek' ;
 
   protected static function boot()
   {
     static::addGlobalScope('ShopOfTheWeek', function(Builder $builder) {
-      $builder->where('location_id', self::$location_id);
+      $builder->where('location_id', Location::where('types', self::$type)->where('parent_id', 0)->first()->id);
     });
 
     static::creating(function ($ShopOfTheWeek) {
-      $ShopOfTheWeek->location_id = self::$location_id ;
+      $ShopOfTheWeek->location_id = Location::where('types', self::$type)->where('parent_id', 0)->first()->id ;
     });
   }
 
