@@ -1,6 +1,5 @@
 <?php
 return [
-
   'defaultLanguage' => 'th' ,
   'listTransLang'   => ['th','vn'],
 

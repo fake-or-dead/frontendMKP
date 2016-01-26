@@ -12,7 +12,7 @@ class User extends Authenticatable
     protected $hidden       = ['password'];
     protected $dates        = ['deleted_at'];
     protected $softDelete   = true;
-    protected $fillable     = array('group_id', 'username', 'password','first_name','last_name','position','department','status');
+    protected $fillable     = ['group_id', 'username', 'password', 'first_name', 'last_name', 'position', 'department', 'status'];
 
     public function groupUser()
     {

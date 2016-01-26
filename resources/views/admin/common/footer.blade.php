@@ -44,9 +44,9 @@
         ...
       </div>
       <div class="modal-footer" id="closeFullbox">
-        <button type="button" onclick="ajaxDelete()" style="display:none" class="btn btn-default btnDelete">{{ trans('banner_messages.yes') }}</button>
-        <button type="button" class="btn btn-default btnDelete" style="display:none" data-dismiss="modal">{{ trans('banner_messages.no') }}</button>
-        <button type="button" class="btn btn-default btnClose" data-dismiss="modal">{{ trans('banner_messages.close') }}</button>
+        <button type="button" onclick="ajaxDelete()" style="display:none" class="btn btn-default btnDelete">{{ trans('admin/text_message.yes') }}</button>
+        <button type="button" class="btn btn-default btnDelete" style="display:none" data-dismiss="modal">{{ trans('admin/text_message.no') }}</button>
+        <button type="button" class="btn btn-default btnClose" data-dismiss="modal">{{ trans('admin/text_message.close') }}</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>

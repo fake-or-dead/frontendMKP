@@ -21,21 +21,37 @@ class ContentSeeder extends Seeder
 
         // seed Location
         foreach (range(0, 3) as $index) {
-        	$name = ['Banner', 'Privilege', 'ClickChannel', 'ShopOfTheWeek'];
+          $name = ['Banner', 'Privilege', 'ClickChannel', 'ShopOfTheWeek'];
             $width = [580, 640, 700];
             $height = [420, 480, 540];
             // $parentID = (Location::count() > 0)? Location::orderByRaw('RAND()')->first()->id : 0;
-            Location::create([
+            $location = Location::create([
                 'user_id' => User::orderByRaw('RAND()')->first()->id,
                 'location_name' => $name[$index],
                 'limit' => rand(1, 20),
                 'width' => $width[rand(0,count($width)-1)],
                 'height' => $height[rand(0,count($height)-1)],
-                'parent_id' => 0,
                 'sort_order' => 1,
-                'types' => rand(1, 2),
+                'flag_last' => ($index)? 1 : 0,
+                'types' => $index+1,
                 'status' => rand(0, 1)
             ]);
+
+            if ($index == 0) {
+              foreach (range(1, 7) as $sub_index) {
+                Location::create([
+                  'user_id' => User::orderByRaw('RAND()')->first()->id,
+                  'location_name' => $name[$index] . ' sub' . $sub_index,
+                  'limit' => 1,
+                  'width' => $width[rand(0,count($width)-1)],
+                  'height' => $height[rand(0,count($height)-1)],
+                  'sort_order' => $sub_index,
+                  'flag_last' => ($sub_index == 7)? 1 : 0,
+                  'types' => $index+1,
+                  'status' => 1
+                ]);
+              }
+            }
         }
 
         // seed PageContent
@@ -52,6 +68,7 @@ class ContentSeeder extends Seeder
                 'name' => $faker->userName,
                 'link_url' => $faker->url,
                 'image_url' => $faker->imageUrl($width = $location->width, $height = $location->height),
+                'parent_id' => 0,
                 'sort_order' => $sortOrder,
                 'start' => $date_start,
                 'end' => $date_end,

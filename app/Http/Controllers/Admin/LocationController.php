@@ -82,6 +82,7 @@ class LocationController extends Controller
     $dataInsert                     = $request->except(['_token']) ;
     $dataInsert['user_id']          = $request->session()->get('backoffice')['id'] ;
     Location::create(beforeSql($dataInsert));
+    Cache::forget('cacheMenuLeft');
     return redirect()->action('Admin\LocationController@index');
   }
 

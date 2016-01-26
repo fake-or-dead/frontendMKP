@@ -5,13 +5,13 @@ namespace App\Model\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PageContent extends Model
+class ClickChannel extends Model
 {
     use SoftDeletes;
 
     protected $table        = 'page_content';
     protected $dates        = ['deleted_at'];
-    protected $fillable     = ['location_id', 'user_id', 'name', 'link_url', 'image_url', 'sort_order', 'start', 'end', 'status'];
+    protected $fillable     = ['location_id','user_id','name','link_url','sort_order','start','end','status'];
     protected $softDelete   = true;
 
     public function location()
