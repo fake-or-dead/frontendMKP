@@ -2,7 +2,7 @@
 @section("content")
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">{{ trans('Admin/text_message.CC_CreateLocation') }}</h1>
+      <h1 class="page-header">{{ trans('Admin/text_message.CC_EditLocation') }}</h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -11,7 +11,7 @@
     <div class="col-lg-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <a href="{{ action('Admin\ClickchannelController@index') }}">{{ trans('Admin/text_message.home') }}</a> / <a href="{{ action('Admin\ClickchannelController@index') }}">{{ trans('Admin/text_message.groupClickchannel') }}</a> / {{ trans('Admin/text_message.CC_CreateLocation') }}
+          <a href="{{ action('Admin\ClickchannelController@index') }}">{{ trans('Admin/text_message.home') }}</a> / <a href="{{ action('Admin\ClickchannelController@index') }}">{{ trans('Admin/text_message.groupClickchannel') }}</a> / {{ trans('Admin/text_message.CC_EditLocation') }}
         </div>
         <div class="panel-body">
           <div class="row">
@@ -19,15 +19,15 @@
               <form role="form" id="formSubmit" action="{{ $actionLink }}" method="post">
                 <div class="form-group">
                   <label>{{ trans('Admin/text_message.CC_VideoName') }}</label>
-                  <input class="form-control" name="name" value="{{ inputValue('name', $data) }}">
+                  <input class="form-control" name="name" value="{{ @$data[0]->name }}">
                 </div>
                 <div class="form-group">
                   <label>{{ trans('Admin/text_message.CC_VideoUrl') }}</label>
-                  <input class="form-control" name="link_url" value="@if($action == 'edit')https://www.youtube.com/watch?v={{ inputValue('link_url', $data) }}@endif">
+                  <input class="form-control" name="link_url" value="@if($action == 'edit') https://www.youtube.com/watch?v={{ $data[0]->link_url }} @endif">
                 </div>
                 <div class="form-group">
                   <label>{{ trans('Admin/text_message.CC_VideoStart') }}</label>
-                  <input class="form-control datepicker" name="start" value="{{ inputValue('start', $data) }}">
+                  <input class="form-control datepicker" name="start" value="{{ @$data[0]->start }}">
                 </div>
                 <!-- <div class='input-group date' id='startDate'>
                   <input type='text' class="form-control" name="startDate" />
@@ -36,13 +36,13 @@
                 </div> -->
                 <div class="form-group">
                   <label>{{ trans('Admin/text_message.CC_VideoEnd') }}</label>
-                  <input class="form-control datepicker" name="end" value="{{ inputValue('end', $data) }}">
+                  <input class="form-control datepicker" name="end" value="{{ @$data[0]->end }}">
                 </div>
                 <div class="form-group">
                   <label>{{ trans('Admin/text_message.status') }}</label>
                   <div class="radio">
                     <label>
-                      <input type="radio" value="1" name="status" {{ (isset($data[0]->status) && $data[0]->status == 1 ? 'checked': '') }} id="optionsRadios1" value="yes">{{ trans('Admin/text_message.active') }}
+                      <input type="radio" value="1" name="status" {{ (isset($data[0]->status) && $data[0]->status == 1 ? 'checked': 'checked' ) }} id="optionsRadios1" value="yes">{{ trans('Admin/text_message.active') }}
                     </label>
                   </div>
                   <div class="radio">

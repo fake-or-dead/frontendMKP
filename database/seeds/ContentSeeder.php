@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use App\Model\Admin\GroupUser;
 use App\Model\Admin\User;
@@ -7,7 +6,6 @@ use App\Model\Admin\Location;
 use App\Model\Admin\PageContent;
 use App\Model\Admin\Showtime;
 use App\Model\Admin\ImageDescription;
-
 class ContentSeeder extends Seeder
 {
     /**
@@ -18,7 +16,6 @@ class ContentSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-
         // seed Location
         foreach (range(0, 3) as $index) {
           $name = ['Banner', 'Privilege', 'ClickChannel', 'ShopOfTheWeek'];
@@ -36,7 +33,6 @@ class ContentSeeder extends Seeder
                 'types' => $index+1,
                 'status' => rand(0, 1)
             ]);
-
             if ($index == 0) {
               foreach (range(1, 7) as $sub_index) {
                 Location::create([
@@ -53,7 +49,6 @@ class ContentSeeder extends Seeder
               }
             }
         }
-
         // seed PageContent
         foreach (range(0, 60) as $index) {
             $location = Location::orderByRaw('RAND()')->first();
