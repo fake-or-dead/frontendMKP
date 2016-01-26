@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Model\Admin\Banner;
 use App\Model\Admin\Location;
 use View,Config;
 
@@ -18,8 +19,9 @@ class BannerController extends Controller
      */
     public function index()
     {
+        $banner = Banner::with('subBanners.pageContents')->with('pageContents')->first();
         return view('admin.banner.index', [
-            'test' => [1, 2, 3]
+            'banner' => $banner
         ]);
     }
 
