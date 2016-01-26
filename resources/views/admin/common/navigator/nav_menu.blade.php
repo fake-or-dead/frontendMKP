@@ -35,7 +35,7 @@
                 </li>
                 @foreach($cacheMenuLeft as $key => $val)
                   <li>
-                      <a href="morris.html">{{ trans('Admin/text_message.'.$val['location_name']) }}</a>
+                      <a href="{{ action('Admin\ShopOfTheWeekController@index') }}">{{ trans('Admin/text_message.'.$val['location_name']) }}</a>
                   </li>
                 @endforeach
             </ul>
@@ -44,7 +44,7 @@
             <a href="{{ action('Admin\UserController@index') }}"><i class="fa fa-table fa-fw"></i> {{ trans('Admin/text_message.user') }}</a>
         </li>
         <li>
-            <a href="{{ action('Admin\GroupuserController@index') }}"><i class="fa fa-table fa-fw"></i> {{ trans('Admin/text_message.groupUser') }}</a>
+            <a href="{{ action('Admin\GroupuserController@index') }}"><i class="fa fa-table fa-fw"></i> {{ trans('banner_messages.groupUser') }}</a>
         </li>
     </ul>
   </div>
