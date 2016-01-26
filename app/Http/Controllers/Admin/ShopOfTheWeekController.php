@@ -26,8 +26,8 @@ class ShopOfTheWeekController extends Controller
       if ($request->has('q'))
       {
         $search                 = e($request->input('q')) ;
-        $setData['data']        = ShopOfTheWeek::orWhere('id', 'LIKE', '%'.$search.'%')
-                                  ->orWhere('group_name', 'LIKE', '%'.$search.'%')
+        $setData['data']        = ShopOfTheWeek::with('user')->orWhere('id', 'LIKE', '%'.$search.'%')
+                                  ->orWhere('name', 'LIKE', '%'.$search.'%')
                                   ->orderBy('id', 'desc')
                                   ->paginate(Config::get('admin.defultRecord'));
 
@@ -68,6 +68,7 @@ class ShopOfTheWeekController extends Controller
     public function store(ShopOfTheWeekRequest $request)
     {
       $nameImage                  = 'ShopOfTheWeek-'.date('YmdHis').'.'.$request->file('imageupload')->guessExtension() ;
+
       $request->file('imageupload')->move(Config('admin.upload.admin.path'), $nameImage);
 
       $dataInsert                 = $request->except(['_token','imageupload']) ;
@@ -120,7 +121,22 @@ class ShopOfTheWeekController extends Controller
     */
     public function update(ShopOfTheWeekRequest $request, int $id)
     {
-        //
+      // if()
+      // {
+
+      // }
+
+      $dataUpdate                 = $request->except(['_token','imageupload','_method']) ;
+      // $dataUpdate['image_url']    = $nameImage ;
+
+      // ShopOfTheWeek::where('id', $id)->update(beforeSql($dataUpdate));
+
+      ShopOfTheWeek::where('id', $id)->save();
+
+      d(232) ;
+      // return redirect()->action('Admin\ShopOfTheWeekController@index');
+
+
     }
 
     /**

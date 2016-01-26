@@ -68,12 +68,14 @@
   'changeLang'        => 'เปลี่ยนภาษา',
 
   'editLocation'      => 'แก้ไขตำแน่ง',
-  // ahop of the week
-  'createShopOfTheWeek'   => 'สร้าง',
+
+  // shop of the week
+  'createShopOfTheWeek'   => 'สร้าง Shop of The Week',
   'ShopOfTheWeek'     => 'Shop of The Week',
   'nameShopOfTheWeek' => 'ชื่อ',
   'image'             => 'รูปภาพ',
   'imageupload'       => 'รูปภาพ',
+
 
   'link'              => 'Link Url',
   'link_url'          => 'Link Url',
@@ -113,5 +115,6 @@
   'CC_require_name'         => 'กรุณากรอกชื่อรายการ',
   'CC_require_link_url'     => 'กรุณากรอก Link URL',
   'CC_require_status'       => 'กรุณาเลือกสถานะ'
+
 
 ];
