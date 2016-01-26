@@ -17,7 +17,6 @@ class ShopOfTheWeek extends Model
 
   protected static function boot()
   {
-    parent::boot();
     static::addGlobalScope('ShopOfTheWeek', function(Builder $builder) {
       $builder->where('types', 'ShopOfTheWeek')->where('parent_id', 0);
     });
