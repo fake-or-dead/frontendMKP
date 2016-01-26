@@ -2,7 +2,7 @@
   if (!Cache::has('cacheMenuLeft'))
   {
     $cacheMenuLeft = Cache::remember('cacheMenuLeft', 60, function() {
-      return App\Model\Admin\Location::get()->toArray ;
+      return App\Model\Admin\Location::get()->toArray() ;
     });
   }
   else

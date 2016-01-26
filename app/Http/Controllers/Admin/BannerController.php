@@ -18,7 +18,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.banner.index', [
+            'test' => [1, 2, 3]
+        ]);
     }
 
     /**
