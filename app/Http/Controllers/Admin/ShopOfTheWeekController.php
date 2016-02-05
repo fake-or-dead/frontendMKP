@@ -29,7 +29,7 @@ class ShopOfTheWeekController extends Controller
         $setData['data']        = ShopOfTheWeek::orWhere('id', 'LIKE', '%'.$search.'%')
                                   ->orWhere('group_name', 'LIKE', '%'.$search.'%')
                                   ->orderBy('id', 'desc')
-                                  ->paginate(Config::get('admin.defultRecord'));
+                                  ->paginate(Config::get('admin.defaultRecord'));
 
         $setData['pagination']  = $setData['data']->appends(['q' => $request->input('q')])->links() ;
         $setData['search']      = $request->input('q') ;
@@ -37,7 +37,7 @@ class ShopOfTheWeekController extends Controller
       else
       {
         $setData['data']        = ShopOfTheWeek::with('user')->orderBy('id' , 'desc')
-                                  ->paginate(Config::get('admin.defultRecord'));
+                                  ->paginate(Config::get('admin.defaultRecord'));
 
         $setData['pagination']  = $setData['data']->links() ;
       }

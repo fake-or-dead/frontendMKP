@@ -24,5 +24,5 @@ return [
                   ]
                 ]
               ],
-  'defultRecord' => 4
+  'defaultRecord' => 4
 ];
