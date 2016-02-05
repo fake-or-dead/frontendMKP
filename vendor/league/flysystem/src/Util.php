@@ -31,7 +31,11 @@ class Util
      */
     public static function normalizeDirname($dirname)
     {
-        return $dirname === '.' ? '' : $dirname;
+        if ($dirname === '.') {
+            return '';
+        }
+
+        return $dirname;
     }
 
     /**

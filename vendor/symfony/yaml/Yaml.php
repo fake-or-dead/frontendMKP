@@ -20,8 +20,6 @@ use Symfony\Component\Yaml\Exception\ParseException;
  */
 class Yaml
 {
-    const DUMP_OBJECT = 1;
-
     /**
      * Parses YAML into a PHP value.
      *
@@ -57,21 +55,15 @@ class Yaml
      * @param int   $inline                 The level where you switch to inline YAML
      * @param int   $indent                 The amount of spaces to use for indentation of nested nodes.
      * @param bool  $exceptionOnInvalidType true if an exception must be thrown on invalid types (a PHP resource or object), false otherwise
-     * @param int   $flags                  A bit field of DUMP_* constants to customize the dumped YAML string
+     * @param bool  $objectSupport          true if object support is enabled, false otherwise
      *
      * @return string A YAML string representing the original PHP array
      */
-    public static function dump($array, $inline = 2, $indent = 4, $exceptionOnInvalidType = false, $flags = 0)
+    public static function dump($array, $inline = 2, $indent = 4, $exceptionOnInvalidType = false, $objectSupport = false)
     {
-        if (is_bool($flags)) {
-            @trigger_error('Passing a boolean flag to toggle object support is deprecated since version 3.1 and will be removed in 4.0. Use the DUMP_OBJECT flag instead.', E_USER_DEPRECATED);
-
-            $flags = (int) $flags;
-        }
-
         $yaml = new Dumper();
         $yaml->setIndentation($indent);
 
-        return $yaml->dump($array, $inline, 0, $exceptionOnInvalidType, $flags);
+        return $yaml->dump($array, $inline, 0, $exceptionOnInvalidType, $objectSupport);
     }
 }

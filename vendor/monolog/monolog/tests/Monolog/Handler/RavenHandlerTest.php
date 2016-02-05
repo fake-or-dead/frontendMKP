@@ -99,18 +99,6 @@ class RavenHandlerTest extends TestCase
         $this->assertEquals($release, $ravenClient->lastData['release']);
     }
 
-    public function testFingerprint()
-    {
-        $ravenClient = $this->getRavenClient();
-        $handler = $this->getHandler($ravenClient);
-
-        $fingerprint = array('{{ default }}', 'other value');
-        $record = $this->getRecord(Logger::INFO, 'test', array('fingerprint' => $fingerprint));
-        $handler->handle($record);
-
-        $this->assertEquals($fingerprint, $ravenClient->lastData['fingerprint']);
-    }
-
     public function testUserContext()
     {
         $ravenClient = $this->getRavenClient();
@@ -121,7 +109,7 @@ class RavenHandlerTest extends TestCase
 
         $user = array(
             'id' => '123',
-            'email' => 'test@test.com',
+            'email' => 'test@test.com'
         );
 
         $recordWithContext = $this->getRecord(Logger::INFO, 'test', array('user' => $user));

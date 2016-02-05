@@ -6,6 +6,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -332,13 +333,11 @@ class BelongsToMany extends Relation
     {
         $query->select($columns);
 
-        $query->from($this->related->getTable().' as '.$hash = $this->getRelationCountHash());
+        $query->from($this->table.' as '.$hash = $this->getRelationCountHash());
 
-        $this->related->setTable($hash);
+        $key = $this->wrap($this->getQualifiedParentKeyName());
 
-        $this->setJoin($query);
-
-        return parent::getRelationQuery($query, $parent, $columns);
+        return $query->where($hash.'.'.$this->foreignKey, '=', new Expression($key));
     }
 
     /**

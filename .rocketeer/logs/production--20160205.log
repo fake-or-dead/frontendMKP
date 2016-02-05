@@ -3,65 +3,66 @@
 20160205173828
 20160205174111
 20160205174313
-$ git clone "git@github.com:fake-or-dead/frontendMKP.git" "/home/www/frontendMKPgh/releases/20160205174958" --branch="master" --depth="1"
-git clone "git@github.com:fake-or-dead/frontendMKP.git" "/home/www/frontendMKPgh/releases/20160205174958" --branch="master" --depth="1"
-Initialized empty Git repository in /home/www/frontendMKPgh/releases/20160205174958/.git/
-$ cd /home/www/frontendMKPgh/releases/20160205174958
+20160205174958
+20160205175615
+20160205175816
+$ git clone "git@github.com:fake-or-dead/frontendMKP.git" "/home/www/frontendMKPgh/releases/20160205175952" --branch="master" --depth="1"
+git clone "git@github.com:fake-or-dead/frontendMKP.git" "/home/www/frontendMKPgh/releases/20160205175952" --branch="master" --depth="1"
+Initialized empty Git repository in /home/www/frontendMKPgh/releases/20160205175952/.git/
+$ cd /home/www/frontendMKPgh/releases/20160205175952
 $ git submodule update --init --recursive
-cd /home/www/frontendMKPgh/releases/20160205174958
+cd /home/www/frontendMKPgh/releases/20160205175952
 git submodule update --init --recursive
 
 which: no bundle in (/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin)
 /usr/local/bin/composer
-$ cd /home/www/frontendMKPgh/releases/20160205174958
+$ cd /home/www/frontendMKPgh/releases/20160205175952
 $ /usr/local/bin/composer install --no-interaction --no-dev --prefer-dist
-cd /home/www/frontendMKPgh/releases/20160205174958
+cd /home/www/frontendMKPgh/releases/20160205175952
 /usr/local/bin/composer install --no-interaction --no-dev --prefer-dist
 Loading composer repositories with package information
 Installing dependencies from lock file
-  - Removing symfony/dom-crawler (v3.0.1)
-  - Removing symfony/css-selector (v3.0.1)
-  - Removing phpunit/php-code-coverage (2.2.4)
-  - Removing phpunit/php-file-iterator (1.4.1)
-  - Removing phpunit/php-token-stream (1.4.8)
-  - Removing phpunit/php-timer (1.0.7)
-  - Removing phpunit/phpunit-mock-objects (2.3.8)
+  - Removing hamcrest/hamcrest-php (1.2.x-dev b72949c)
+  - Removing phpunit/php-code-coverage (2.2.x-dev eabf68b)
+  - Removing phpunit/php-file-iterator (dev-master 6150bf2)
+  - Removing phpunit/php-token-stream (dev-master cab6c6f)
+  - Removing phpunit/phpunit-mock-objects (2.3.x-dev ac8e7a3)
+  - Removing symfony/yaml (dev-master 7e7f090)
+  - Removing phpunit/php-timer (dev-master 3e82f4e)
+  - Removing sebastian/environment (dev-master 6e71337)
+  - Removing phpspec/prophecy (dev-master e55e3e3)
+  - Removing doctrine/instantiator (dev-master 8e884e7)
+  - Removing sebastian/comparator (dev-master 937efb2)
+  - Removing sebastian/diff (dev-master 13edfd8)
+  - Removing sebastian/exporter (dev-master f88f893)
+  - Removing sebastian/recursion-context (dev-master 7ff5b1b)
+  - Removing fzaninotto/faker (dev-master 8d8e0e1)
   - Removing phpunit/php-text-template (1.2.1)
-  - Removing phpspec/prophecy (v1.5.0)
   - Removing phpdocumentor/reflection-docblock (2.0.4)
-  - Removing doctrine/instantiator (1.0.5)
-  - Removing symfony/yaml (v3.0.1)
-  - Removing sebastian/comparator (1.2.0)
-  - Removing sebastian/diff (1.4.1)
-  - Removing sebastian/environment (1.3.3)
-  - Removing sebastian/exporter (1.2.1)
-  - Removing sebastian/recursion-context (1.0.2)
   - Removing sebastian/global-state (1.1.1)
   - Removing sebastian/version (1.0.6)
   - Removing mockery/mockery (0.9.4)
-  - Removing hamcrest/hamcrest-php (v1.2.2)
-  - Removing fzaninotto/faker (v1.5.0)
-  - Removing phpunit/phpunit (4.8.21)
+  - Removing phpunit/phpunit (4.8.x-dev 1ae3a68)
 Generating autoload files
 > php artisan clear-compiled
-PHP Fatal error:  Uncaught ReflectionException: Class log does not exist in /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php:738
+PHP Fatal error:  Uncaught ReflectionException: Class log does not exist in /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php:738
 Stack trace:
-#0 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php(738): ReflectionClass->__construct('log')
-#1 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build('log', Array)
-#2 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(674): Illuminate\Container\Container->make('log', Array)
-#3 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php(853): Illuminate\Foundation\Application->make('log')
-#4 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php(808): Illuminate\Container\Container->resolveClas in /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 738
+#0 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php(738): ReflectionClass->__construct('log')
+#1 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build('log', Array)
+#2 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(674): Illuminate\Container\Container->make('log', Array)
+#3 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php(853): Illuminate\Foundation\Application->make('log')
+#4 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php(808): Illuminate\Container\Container->resolveClas in /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 738
 Script php artisan clear-compiled handling the post-install-cmd event returned with an error
 
                                                                                                                                                                                                                                                                                                        
   [RuntimeException]                                                                                                                                                                                                                                                                                   
-  Error Output: PHP Fatal error:  Uncaught ReflectionException: Class log does not exist in /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php:738                                                                                        
+  Error Output: PHP Fatal error:  Uncaught ReflectionException: Class log does not exist in /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php:738                                                                                        
   Stack trace:                                                                                                                                                                                                                                                                                         
-  #0 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php(738): ReflectionClass->__construct('log')                                                                                                                                         
-  #1 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build('log', Array)                                                                                                                         
-  #2 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(674): Illuminate\Container\Container->make('log', Array)                                                                                                                       
-  #3 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php(853): Illuminate\Foundation\Application->make('log')                                                                                                                              
-  #4 /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php(808): Illuminate\Container\Container->resolveClas in /home/www/frontendMKPgh/releases/20160205174958/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 738  
+  #0 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php(738): ReflectionClass->__construct('log')                                                                                                                                         
+  #1 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build('log', Array)                                                                                                                         
+  #2 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(674): Illuminate\Container\Container->make('log', Array)                                                                                                                       
+  #3 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php(853): Illuminate\Foundation\Application->make('log')                                                                                                                              
+  #4 /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php(808): Illuminate\Container\Container->resolveClas in /home/www/frontendMKPgh/releases/20160205175952/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 738  
                                                                                                                                                                                                                                                                                                        
 
 install [--prefer-source] [--prefer-dist] [--dry-run] [--dev] [--no-dev] [--no-plugins] [--no-custom-installers] [--no-autoloader] [--no-scripts] [--no-progress] [-v|vv|vvv|--verbose] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--ignore-platform-reqs] [--] [<packages>]...
