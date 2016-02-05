@@ -20,16 +20,14 @@
   'image'             => 'Image',
   'create'            => 'สร้าง',
 
-
-
   // ERROR
   'passwordFail'              => 'รหัสผ่านผิดพลาด',
   'statusUserNoneActive'      => 'ถูกปิดการใช้งาน',
   'nodataInSyatem'            => 'ไม่พบข้อมูลในระบบ',
 
   // massage
-  'msgConfirmDelete'  => 'คุณต้องการลบข้อมูลนี้หรือไม่',
-
+  'msgConfirmDelete'    => 'คุณต้องการลบข้อมูลนี้หรือไม่',
+  'msgConfirmChgstatus' => 'คุณต้องการเปลี่ยนสถานะหรือไม่',
 
   'fileUpload80x60'   => 'ภาพขนาด 80x60',
   'user'              => 'ผู้ใช้งานระบบ',
@@ -68,12 +66,14 @@
   'changeLang'        => 'เปลี่ยนภาษา',
 
   'editLocation'      => 'แก้ไขตำแน่ง',
-  // ahop of the week
-  'createShopOfTheWeek'   => 'สร้าง',
+
+  // shop of the week
+  'createShopOfTheWeek'   => 'สร้าง Shop of The Week',
   'ShopOfTheWeek'     => 'Shop of The Week',
   'nameShopOfTheWeek' => 'ชื่อ',
   'image'             => 'รูปภาพ',
   'imageupload'       => 'รูปภาพ',
+
 
   'link'              => 'Link Url',
   'link_url'          => 'Link Url',
@@ -101,6 +101,7 @@
   'clickchannel_sort'       => 'เรียงลำดับ',
   'CC_status_close'         => 'รอแสดง',
   'CC_CreateLocation'       => 'สร้างวิดีโอ',
+  'CC_EditLocation'         => 'แก้ไขวิดีโอ',
   'CC_VideoName'            => 'ชื่อวิดีโอ',
   'CC_VideoUrl'             => 'Youtube URL (https://www.youtube.com/watch?v=xxxxxxxxxxx)',
   'CC_status_open'          => 'แสดง',
@@ -113,5 +114,6 @@
   'CC_require_name'         => 'กรุณากรอกชื่อรายการ',
   'CC_require_link_url'     => 'กรุณากรอก Link URL',
   'CC_require_status'       => 'กรุณาเลือกสถานะ'
+
 
 ];

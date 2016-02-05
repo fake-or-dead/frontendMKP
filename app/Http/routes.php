@@ -39,7 +39,7 @@ Route::group(['middleware' => ['bannertoolcheckpermission']], function () {
 
 	Route::resource('admin/login', 				 'Admin\LoginController', ['only'=>['index', 'store']]);
 	Route::get('admin/logout', 						 'Admin\LoginController@logout');
-	Route::get('admin/changelang',				 'Admin\LoginController@lang');
+	Route::get('admin/changelang', 				 'Admin\LoginController@lang');
 });
 
 Route::group(['middleware' => ['frontend']], function () { });

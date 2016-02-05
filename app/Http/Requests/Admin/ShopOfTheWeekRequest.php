@@ -47,7 +47,13 @@ class ShopOfTheWeekRequest extends Request
       case 'PUT':
       case 'PATCH':
       {
-        return [];
+        self::setSize();
+        return [
+                'name'        => 'required|alpha_dash',
+                'link_url'    => 'required|alpha_dash',
+                'status'      => ['required','integer'],
+                // 'imageupload' => 'image|image_size:'.self::$width.','.self::$height.'|mimes:'.Config::get('admin.upload.admin.mimes').'|max:'.Config::get('admin.upload.admin.storage'),
+        ];
       }
       default:break;
     }
@@ -69,7 +75,7 @@ class ShopOfTheWeekRequest extends Request
         'limit.alpha_dash'        => trans('admin/text_message.link_url') . ' ' . trans('error.alpha_dash'),
         'imageupload.required'    => trans('admin/text_message.imageupload') . ' ' . trans('error.required'),
         'imageupload.image'       => trans('error.image'),
-        'imageupload.image_size'  => trans('admin/text_message.imageupload') . ' ' . trans('error.image_size'),
+        'imageupload.image_size'  => trans('admin/text_message.imageupload') . ' ' . trans('error.image_size',['width' => self::$width , 'height' => self::$height ]),
         'imageupload.mimes'       => trans('admin/text_message.imageupload') . ' ' . trans('error.mimes'),
         'imageupload.max'         => trans('admin/text_message.imageupload') . ' ' . trans('error.imageSizeMax'),
         'status.required'         => trans('admin/text_message.status') . ' ' . trans('error.required'),
