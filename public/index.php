@@ -18,7 +18,7 @@
 | loading any of our classes later on. It feels nice to relax.
 |
 */
-// declare(strict_types=1); 
+// declare(strict_types=1);
 require __DIR__.'/../bootstrap/autoload.php';
 
 /*
@@ -46,7 +46,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
-
+echo 'yo';
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
